@@ -3,16 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.5.2",
+    "@types/chart.js": "^2.8.11",
     "@types/jest": "24.0.21",
     "@types/node": "12.12.0",
     "@types/react": "16.9.11",
     "@types/react-dom": "16.9.3",
-    "chart.js": "^2.9.1",
-    "gh-pages": "^2.1.1",
-    "materialize-css": "^1.0.0-rc.2",
+    "antd": "^3.24.3",
+    "chart.js": "^2.9.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-materialize": "^3.4.1",
+    "react-helmet": "^5.2.1",
     "react-scripts": "3.2.0",
     "typescript": "3.6.4"
   },
@@ -36,5 +37,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.1.1"
   }
 }
