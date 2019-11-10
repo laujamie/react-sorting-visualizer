@@ -5,6 +5,8 @@ import SortingAppbar from "./components/appbar/sorting-appbar";
 import blue from "@material-ui/core/colors/blue";
 import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/core/styles";
+import SortingChart from "./components/chart/sorting-chart";
+import { Grid } from "@material-ui/core";
 
 const theme = createMuiTheme({
   palette: {
@@ -22,6 +24,9 @@ const App: React.FC = props => {
     <ThemeProvider theme={theme}>
       <Container maxWidth="sm">
         <SortingAppbar></SortingAppbar>
+        <div style={{ paddingTop: "5em" }}>
+          <SortingChart></SortingChart>
+        </div>
       </Container>
     </ThemeProvider>
   );
