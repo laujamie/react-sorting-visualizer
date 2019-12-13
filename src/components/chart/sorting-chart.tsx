@@ -15,7 +15,7 @@ const SortingChart: React.FC<SortingChartProps> = (
 ) => {
   return (
     <BarChart width={500} height={300} data={props.data}>
-      <Bar dataKey="val" fill="#FF9800" label={{ position: "top" }}></Bar>
+      <Bar dataKey="val" fill="#FF9800"></Bar>
     </BarChart>
   );
 };
