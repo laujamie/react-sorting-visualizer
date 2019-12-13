@@ -1,37 +1,23 @@
-import React, { Component } from "react";
-import Chart from "chart.js";
+import React from "react";
+import { BarChart, Bar } from "recharts";
 
-export default class SortingChart extends Component {
-  private chartRef = React.createRef<HTMLCanvasElement>();
-
-  componentDidMount() {
-    let myChartRef = null;
-    if (this.chartRef && this.chartRef.current) {
-      myChartRef = this.chartRef.current.getContext("2d");
-    }
-    if (myChartRef) {
-      new Chart(myChartRef, {
-        type: "bar",
-        data: {
-          labels: ["Jan", "Feb"],
-          datasets: [
-            {
-              label: "Sales",
-              data: [50, 87]
-            }
-          ]
-        },
-        options: {
-          // Customize
-        }
-      });
-    }
-  }
-  render() {
-    return (
-      <div className="chart">
-        <canvas id="myChart" ref={this.chartRef}></canvas>
-      </div>
-    );
-  }
+export interface BarData extends Object {
+  key?: number;
+  val: number;
 }
+
+interface SortingChartProps extends Object {
+  data: Array<BarData>;
+}
+
+const SortingChart: React.FC<SortingChartProps> = (
+  props: SortingChartProps
+) => {
+  return (
+    <BarChart width={500} height={300} data={props.data}>
+      <Bar dataKey="val" fill="#FF9800" label={{ position: "top" }}></Bar>
+    </BarChart>
+  );
+};
+
+export default SortingChart;
