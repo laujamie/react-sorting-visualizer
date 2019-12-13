@@ -1,5 +1,5 @@
 import React from "react";
-import { BarChart, Bar } from "recharts";
+import { BarChart, Bar, ResponsiveContainer } from "recharts";
 
 export interface BarData extends Object {
   key?: number;
@@ -14,9 +14,11 @@ const SortingChart: React.FC<SortingChartProps> = (
   props: SortingChartProps
 ) => {
   return (
-    <BarChart width={500} height={300} data={props.data}>
-      <Bar dataKey="val" fill="#FF9800"></Bar>
-    </BarChart>
+    <ResponsiveContainer width="100%" height={300}>
+      <BarChart data={props.data}>
+        <Bar dataKey="val" fill="#FF9800"></Bar>
+      </BarChart>
+    </ResponsiveContainer>
   );
 };
 
