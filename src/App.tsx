@@ -16,7 +16,7 @@ const App: React.FC = props => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
 
-  const resetArr = () => {
+  const newArr = () => {
     const newData = Array.from({ length: 30 }, (i, j) => ({
       key: j,
       val: getRandomInt(10, 90)
@@ -46,8 +46,8 @@ const App: React.FC = props => {
           </Grid>
           <Grid container item xs={12} spacing={2} alignItems="center">
             <Grid item>
-              <Button color="secondary" variant="contained" onClick={resetArr}>
-                Reset
+              <Button color="secondary" variant="contained" onClick={newArr}>
+                New Array
               </Button>
             </Grid>
             <Grid item xs={5}>
