@@ -38,7 +38,7 @@ const SortingAppbar: React.FC = props => {
             Bubble
           </Button>
           <Button className={classes.button} color="inherit">
-            Insertion
+            Merge
           </Button>
           <Button className={classes.button} color="inherit">
             Quicksort
