@@ -8,7 +8,11 @@ const SortingVisualizer: React.FC = () => {
   const [arr, setArr] = useState<number[]>([]);
 
   const getRandomArbitrary = (min: number, max: number): number => {
-    return Math.random() * (max - min) + min;
+    return Math.floor(Math.random() * (max - min) + min);
+  };
+
+  const bubbleSort = (): void => {
+    console.log("lmao");
   };
 
   const resetArray = useCallback(() => {
@@ -38,6 +42,7 @@ const SortingVisualizer: React.FC = () => {
         })}
       </div>
       <button onClick={resetArray}>Reset</button>
+      <button onClick={bubbleSort}>Bubble Sort</button>
     </React.Fragment>
   );
 };
