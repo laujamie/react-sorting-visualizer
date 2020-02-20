@@ -12,7 +12,7 @@ const SortingVisualizer: React.FC = () => {
   };
 
   const bubbleSort = (): void => {
-    console.log("lmao");
+    console.log("Work in Progress");
   };
 
   const resetArray = useCallback(() => {
