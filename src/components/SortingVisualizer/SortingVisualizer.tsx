@@ -26,7 +26,7 @@ const SortingVisualizer: React.FC = () => {
 
   return (
     <React.Fragment>
-      <div id="sorting-vis">
+      <div className="sorting-visualizer">
         {arr.map((x: number, id) => {
           return (
             <div
