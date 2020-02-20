@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React from "react";
 import SortingVisualizer from "./components/SortingVisualizer/SortingVisualizer";
 import "./App.css";
 
