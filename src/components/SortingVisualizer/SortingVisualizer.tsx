@@ -3,7 +3,8 @@ import "./SortingVisualizer.scss";
 
 import {
   bubbleSortAnimations,
-  quickSortAnimations
+  quickSortAnimations,
+  insertionSortAnimations
 } from "../SortingAlgorithms/SortingAlgorithms";
 
 const SortingVisualizer: React.FC = () => {
@@ -72,20 +73,12 @@ const SortingVisualizer: React.FC = () => {
         HTMLElement
       >;
       if (animations[i].length === 1) {
-        if (pivotColored) {
-          pivotColored = false;
-          const [id] = animations[i];
-          setTimeout(() => {
-            BARS[id].style.backgroundColor = PRIMARY_COLOR;
-          }, i * ANIM_LENGTH);
-        } else {
-          pivotColored = true;
-          const [id] = animations[i];
-          setTimeout(() => {
-            BARS[id].style.backgroundColor = PIVOT_COLOR;
-          }, i * ANIM_LENGTH);
-          j = 0;
-        }
+        const col = pivotColored ? PRIMARY_COLOR : PIVOT_COLOR;
+        pivotColored = !pivotColored;
+        const [id] = animations[i];
+        setTimeout(() => {
+          BARS[id].style.backgroundColor = col;
+        }, i * ANIM_LENGTH);
         continue;
       }
       const [barOneId, barTwoId] = animations[i];
@@ -127,6 +120,35 @@ const SortingVisualizer: React.FC = () => {
     }, animations.length * ANIM_LENGTH);
   };
 
+  const insertionSort = () => {
+    const animations = insertionSortAnimations(arr);
+
+    for (let i = 0; i < animations.length; i++) {
+      const BARS = document.getElementsByClassName("bar") as HTMLCollectionOf<
+        HTMLElement
+      >;
+      const CHANGECOLOR = i % 3 !== 1;
+      if (CHANGECOLOR) {
+        const id = animations[i][0];
+        const barStyles = BARS[id].style;
+        const col = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
+        setTimeout(() => {
+          barStyles.backgroundColor = col;
+        }, i * ANIM_LENGTH);
+      } else {
+        const [barOneId, barTwoId] = animations[i];
+        const barOneStyles = BARS[barOneId].style;
+        const barTwoStyles = BARS[barTwoId].style;
+        setTimeout(() => {
+          [barOneStyles.height, barTwoStyles.height] = [
+            barTwoStyles.height,
+            barOneStyles.height
+          ];
+        }, i * ANIM_LENGTH);
+      }
+    }
+  };
+
   const resetArray = useCallback(() => {
     const BARS = document.getElementsByClassName("bar") as HTMLCollectionOf<
       HTMLElement
@@ -165,6 +187,7 @@ const SortingVisualizer: React.FC = () => {
       <button onClick={resetArray}>Reset</button>
       <button onClick={bubbleSort}>Bubble Sort</button>
       <button onClick={quickSort}>Quick Sort</button>
+      <button onClick={insertionSort}>Insertion Sort</button>
     </React.Fragment>
   );
 };
