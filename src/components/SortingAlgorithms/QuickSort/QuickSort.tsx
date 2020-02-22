@@ -4,7 +4,6 @@ export const quickSortAnimations = (arr: number[]): number[][] => {
   }
   const animations: number[][] = [];
   quickSortHelp(arr, 0, arr.length - 1, animations);
-  console.log(arr);
   return animations;
 };
 
