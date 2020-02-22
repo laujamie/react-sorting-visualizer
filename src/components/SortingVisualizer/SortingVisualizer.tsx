@@ -5,7 +5,7 @@ import { bubbleSortAnimations } from "../SortingAlgorithms/BubbleSort/BubbleSort
 import { quickSortAnimations } from "../SortingAlgorithms/QuickSort/QuickSort";
 
 const SortingVisualizer: React.FC = () => {
-  let numVals = 50;
+  let numVals = 101;
   const LOWER_VAL = 5;
   const UPPER_VAL = 550;
   const ANIM_LENGTH = 20;
