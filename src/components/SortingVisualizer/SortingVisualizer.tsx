@@ -1,8 +1,10 @@
 import React, { useEffect, useState, useCallback } from "react";
 import "./SortingVisualizer.scss";
 
-import { bubbleSortAnimations } from "../SortingAlgorithms/BubbleSort/BubbleSort";
-import { quickSortAnimations } from "../SortingAlgorithms/QuickSort/QuickSort";
+import {
+  bubbleSortAnimations,
+  quickSortAnimations
+} from "../SortingAlgorithms/SortingAlgorithms";
 
 const SortingVisualizer: React.FC = () => {
   let numVals = 101;
@@ -89,6 +91,7 @@ const SortingVisualizer: React.FC = () => {
       const [barOneId, barTwoId] = animations[i];
       const CHANGECOLOR = j % 3 !== 1;
       if (CHANGECOLOR) {
+        // When swapping the pivot, we differentiate the color
         const col =
           j % 3 === 0
             ? pivotColored
